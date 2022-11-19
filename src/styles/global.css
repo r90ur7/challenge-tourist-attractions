@@ -1,0 +1,8 @@
+body,
+input,
+button{
+    color:gray;
+}
+button{
+    cursor:pointer;
+}

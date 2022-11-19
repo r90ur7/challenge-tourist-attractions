@@ -1,0 +1,15 @@
+{
+    "name": "challenge-tourist-attractions-gustavo-rallenson",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+},
+    "repository": {
+    "type": "git",
+    "url": "ssh://git@gitea.ecommercetools.com.br:22022/Gustavo_Rallenson_Goncalves_Da_Silva/challenge-tourist-attractions-Gustavo-Rallenson.git"
+},
+    "author": "Rallenson",
+    "license": "ISC"
+}
