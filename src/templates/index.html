@@ -4,30 +4,36 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/src/styles/Main.css">
+        <link rel="stylesheet" href="Main.css">
         <title>Tourist attractions</title>
     </head>
     <body>
         <main>
-            <section>
-                <h1>Adicionar um Ponto Turístico</h1>
-                <form>
-                    <div>
-                        <input type="image" src="../assets/img/image-item-list-Cristo_Redentor.jpg" alt="Ponto Turístico" placeholder="Imagem">
+            <section class="WrapperFormConteiner">
+                <h1 class="FormTitle">Adicionar um Ponto Turístico</h1>
+                <form class="FormConteiner">
+                    <div class="FormImage">
+                        <input class="FormImageItem" type="image"
+                            src="/src/assets/img/image-item-list-Cristo_Redentor.jpg"
+                            alt="Ponto Turístico" placeholder="Imagem" disabled
+                            />
                     </div>
-                    <div>
-                        <input type="text" name="Título" id="Titulo" placeholder="titulo" />
+                    <div class="FormImageTitle">
+                        <input type="text" name="Título" id="Titulo"
+                            placeholder="titulo" />
                     </div>
-                    <div>
-                        <input type="text" name="Descrição"" id="Descrição" placeholder="descrição" />
+                    <div class="FormImageDesc">
+                        <input class="" type="text" name="Descrição""
+                            id="Descrição"
+                            placeholder="descrição" />
                     </div>
-                    <button type="submit">Adicionar</button>
+                    <button class="add" type="submit">Adicionar</button>
                 </form>
-                <div>
-
-                </div>
             </section>
+            <div class="WrapperSlick">
+                <h2>Slick</h2>
+            </div>
         </main>
-
+        <script src=""></script>
     </body>
 </html>
