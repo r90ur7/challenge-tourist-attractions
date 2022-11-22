@@ -1,0 +1,46 @@
+.TuristInputs{
+    display:flex;
+    .FormImage{
+        flex:1;
+        margin-right: 20px;
+    }
+    .FormImageTitle{
+        .item-title{
+            margin-bottom: 20px;
+            width: 328px;
+            height: 56px;
+            padding: 16px;
+        }
+    }
+    .FormImageDesc{
+        width: 417px;
+        height: 136px;
+        .item-desc{
+            width: 417px;
+            height: 136px;
+            padding: 40px 20px 0;
+        }
+    }
+}
+.add{
+    position: absolute;
+    margin-top: 20px;
+    left: 77%;
+    right: 100%;
+    background: $-prisma;
+    color: $-white;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 8px;
+    width: 121px;
+    height: 56px;
+    border: 0;
+    text-transform: Uppercase;
+    font-size: 16px;
+    &:hover{
+        background-color:$-crimson;
+    }
+    &:active{
+        background-color: $-shockPink;
+    }
+    }
+

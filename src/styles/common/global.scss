@@ -1,8 +1,16 @@
-body,
+p,
 input,
 button{
-    color:$-gray-300;
+    color:$-gray-400;
+    font-family: 'Roboto', sans-serif;
 }
 button{
     cursor:pointer;
+}
+h{
+    color:$-black;
+}
+textarea{
+    resize:none;
+    font-family: 'Roboto', sans-serif;
 }

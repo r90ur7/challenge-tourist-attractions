@@ -1,5 +1,7 @@
 const {src, dest, watch} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
+// const connect = require('gulp-connect');
+
 
 function watcher(){
     watch('src/styles/**/*.scss',{ignoreinicial:false},styles)
@@ -8,14 +10,22 @@ function watcher(){
 }
 
 function styles() {
-    return gulp.src("./src/styles/Main.scss")
+    return src("./src/styles/Main.scss")
     .pipe(sass({outputStyle:"compressed"}).on('error', sass.logError))
-    .pipe(gulp.dest('dist'))
+    .pipe(dest('dist'))
     }
 
 function index() {
     return src("./src/templates/index.html")
     .pipe(dest('dist'))
     }
+
+// function server(){
+//         connect.server({
+//             root: 'dist',
+//             livereload: true
+//     })
+//     }
         exports.index = index;
         exports.watcher = watcher;
+        // exports.server = server;

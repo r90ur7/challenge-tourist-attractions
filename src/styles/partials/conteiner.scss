@@ -1,0 +1,20 @@
+.WrapperFormConteiner{
+    position: relative;
+    max-width: 100%;
+    height: 430px;
+    margin: 0 auto;
+    padding: 40px 130px 60px;
+    width: 780px;
+    .FormTitle{
+        margin-bottom:40px;
+        font-size: 32px;
+    }
+}
+.WrapperSlickConteiner{
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 0 130px;
+}
+.FormConteiner{
+    position: relative;
+}
