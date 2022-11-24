@@ -3,6 +3,28 @@
     .FormImage{
         flex:1;
         margin-right: 20px;
+        .select_label{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            width: 344px;
+            aspect-ratio: 16/9;
+            border: 2px solid $-gray-100;
+            cursor:pointer;
+            .Image{
+                display: none;
+            }
+            .PictureCap{
+                width: 100%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                .picture__img{
+                    width: 100%;
+                }
+            }
+        }
     }
     .FormImageTitle{
         .item-title{
@@ -10,28 +32,34 @@
             width: 328px;
             height: 56px;
             padding: 16px;
+            border-radius: 8px;
+            border: 2px solid $-gray-100;
+            font-size: 16px;
         }
     }
     .FormImageDesc{
-        width: 417px;
+        width: 418px;
         height: 136px;
         .item-desc{
-            width: 417px;
+            width: 418px;
             height: 136px;
             padding: 40px 20px 0;
+            border-radius: 8px;
+            font-size: 16px;
+            border: 2px solid $-gray-100;
         }
     }
 }
 .add{
     position: absolute;
     margin-top: 20px;
-    left: 77%;
+    left: 85%;
     right: 100%;
     background: $-prisma;
     color: $-white;
     font-family: 'Poppins', sans-serif;
     border-radius: 8px;
-    width: 121px;
+    width: 122px;
     height: 56px;
     border: 0;
     text-transform: Uppercase;
