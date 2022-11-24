@@ -31,7 +31,7 @@
                                 placeholder="Título"/>
                             </div>
                             <div class="FormImageDesc">
-                                <textarea class="item-desc" type="text"
+                                <textarea class="item-desc" name="descr" type="text"
                                 placeholder="Descrição"></textarea>
                             </div>
                         </div>
@@ -41,44 +41,59 @@
             </section>
             <div class="WrapperSlickConteiner">
                 <h3 class="FormTitle">Pontos Turísticos</h3>
-                <div class="SlickImageItem">
-                    <input class="image-item" type="image"
-                        src="../src/assets/img/image-item-list-Centro_historico.jpg"
-                        alt="Ponto Turístico" placeholder="Imagem" disabled
-                        />
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua
-                        dolor dosa amet sint. Velit officia consece duis enim
-                        velit mollit.</p>
-                </div>
-                <div class="SlickImageItem">
-                    <input class="image-item" type="image"
-                        src="../src/assets/img/image-item-list-Pão-de-açucar.jpg"
-                        alt="Ponto Turístico" placeholder="Imagem" disabled
-                        />
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua
-                        dolor dosa amet sint. Velit officia consece duis enim
-                        velit mollit.</p>
-                </div>
-                <div class="SlcikImageItem">
-                    <input class="image-item" type="image"
-                        src="../src/assets/img/image-item-list-Ilha_Grande.png"
-                        alt="Ponto Turístico" placeholder="Imagem" disabled
-                        />
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua
-                        dolor dosa amet sint. Velit officia consece duis enim
-                        velit mollit.</p>
-                </div>
-                <div class="SlickImageItem">
-                    <input class="image-item" type="image"
-                        src="../src/assets/img/image-item-list-Cristo_Redentor.jpg"
-                        alt="Ponto Turístico" placeholder="Imagem" disabled
-                        />
-                    <p>Amet minim mollit non deserunt ullamco est sit aliqua
-                        dolor dosa amet sint. Velit officia consece duis enim
-                        velit mollit.</p>
-                </div>
+                <ul class="Slicklkist">
+                    <li>
+                        <figure class="SlickImageItem">
+                            <img class="image-item" type="image"
+                                src="../src/assets/img/image-item-list-Pão-de-açucar.jpg"
+                                alt="Ponto Turístico" placeholder="Imagem" disabled
+                                />
+                            <h2  class="title_item">Pão de açucar</h2>
+                            <figcaption>Amet minim mollit non deserunt ullamco est sit aliqua
+                                dolor dosa amet sint. Velit officia consece duis enim
+                                velit mollit.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="SlickImageItem">
+                            <img class="image-item" type="image"
+                                src="../src/assets/img/image-item-list-Cristo_Redentor.jpg"
+                                alt="Ponto Turístico" placeholder="Imagem" disabled
+                                />
+                            <h2  class="title_item">Cristo Redentor</h2>
+                            <figcaption>Amet minim mollit non deserunt ullamco est sit aliqua
+                                dolor dosa amet sint. Velit officia consece duis enim
+                                velit mollit.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="SlickImageItem">
+                            <img class="image-item" type="image"
+                                src="../src/assets/img/image-item-list-Ilha_Grande.png"
+                                alt="Ponto Turístico" placeholder="Imagem" disabled
+                                />
+                            <h2  class="title_item">Ilha Grande</h2>
+                            <figcaption>Amet minim mollit non deserunt ullamco est sit aliqua
+                                dolor dosa amet sint. Velit officia consece duis enim
+                                velit mollit.</figcaption>
+                        </figure>
+                    </li>
+                    <li>
+                        <figure class="SlickImageItem">
+                            <img class="image-item" type="image"
+                                src="../src/assets/img/image-item-list-Centro_historico.jpg"
+                                alt="Ponto Turístico" placeholder="Imagem" disabled
+                                />
+                            <h2  class="title_item">Centro historico</h2>
+                            <figcaption>Amet minim mollit non deserunt ullamco est sit aliqua
+                                dolor dosa amet sint. Velit officia consece duis enim
+                                velit mollit.</figcaption>
+                        </figure>
+                    </li>
+                </ul>
             </div>
         </main>
         <script src="../src/scripts/apps.js"></script>
+        <script src="../src\scripts\appFomulario.js"></script>
     </body>
 </html>
