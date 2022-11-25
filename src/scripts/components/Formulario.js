@@ -54,4 +54,7 @@ export class Formulario{
         this.Description.value = "";
         // this.pictureImage.innerHTML = this.pictureImageTxt;
     }
+
+}
+export const slick ={
 }

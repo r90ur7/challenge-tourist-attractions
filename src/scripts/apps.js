@@ -1,9 +1,8 @@
-import { Formulario } from './components/Formulario.js'
-// import { slick } from './components/slick.js'
+import { Formulario, slick } from './components/Formulario.js'
 import  { preview }  from './components/ImagePreview.js'
 
 document.addEventListener("DOMContentLoaded",function() {
     new Formulario();
     new preview();
-    // new slick();
+    slick();
 });
