@@ -1,31 +1,69 @@
-const {src, dest, watch} = require('gulp');
+const {src, dest, watch, parallel} = require('gulp');
 const sass = require('gulp-sass')(require('sass'));
-// const connect = require('gulp-connect');
+const browserify = require('browserify');
+const babelify =require('babelify');
+const source = require("vinyl-source-stream");
+const uglify = require('gulp-uglify');
+const buffer = require('vinyl-buffer');
+const connect = require('gulp-connect');
+const path={
+    html:{
+        all:"src/templates/**/*.html",
+    },
+    styles:{
+        all:"src/styles/**/*.scss",
+        main:"src/styles/Main.scss"
+
+    },
+    scripts:{
+        all:"src/scripts/**/*.js",
+        main:"src/scripts/apps.js"
+
+    },
+    output:"dist",
+};
+
+function server(){
+        connect.server({
+            root: path.output,
+            livereload: true,
+            port: 5000,
+    })
+    }
 
 
-function watcher(){
-    watch('src/styles/**/*.scss',{ignoreinicial:false},styles)
-    watch('src/templates/**/*.html',{ignoreinicial:false},index)
-    // watch('src/styles/**/*.scss',{ignoreinicial:false},styles)
+function sentinel(){
+    watch(path.html.all,{ignoreInitial:false},html);
+    watch(path.styles.all,{ignoreInitial:false},styles);
+    watch(path.scripts.all,{ignoreInitial:false},scripts);
 }
 
 function styles() {
-    return src("./src/styles/Main.scss")
+    return src(path.styles.main)
     .pipe(sass({outputStyle:"compressed"}).on('error', sass.logError))
-    .pipe(dest('dist'))
+    .pipe(dest(path.output))
+    .pipe(connect.reload());
     }
 
-function index() {
-    return src("./src/templates/index.html")
-    .pipe(dest('dist'))
+    function scripts(){
+        return browserify((path.scripts.main))
+        .transform(
+            babelify.configure({
+            presets: ["@babel/preset-env"],
+            })
+        )
+        .bundle()
+        .pipe(source("bundle.min.js"))
+        .pipe(buffer())
+        .pipe(uglify())
+        .pipe(dest(path.output))
+        .pipe(connect.reload())
+    }
+function html() {
+    return src(path.html.all)
+    .pipe(dest(path.output))
+    .pipe(connect.reload());
     }
 
-// function server(){
-//         connect.server({
-//             root: 'dist',
-//             livereload: true
-//     })
-//     }
-        exports.index = index;
-        exports.watcher = watcher;
+        exports.default = parallel(server,sentinel);
         // exports.server = server;
