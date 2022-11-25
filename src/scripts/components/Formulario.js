@@ -8,8 +8,8 @@ export class Formulario{
     selectors(){
         this.form = document.querySelector('.FormConteiner');
         this.slick = document.querySelector(".WrapperSlickConteiner")
-        this.Titulo = document.querySelector(".item-title");
-        this.Description = document.querySelector(".item-desc");
+        this.Titulo = document.querySelector(".input-titulo");
+        this.Description = document.querySelector(".input-descricao");
         this.Cards = document.querySelector(".Slicklist");
     }
     events(){

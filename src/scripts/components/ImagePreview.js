@@ -7,7 +7,7 @@ export class preview{
 
     }
     selectors(){
-        this.inputfile = document.querySelector(".Image");
+        this.inputfile = document.querySelector(".input-image");
         this.pictureImage  = document.querySelector(".PictureCap");
         this.pictureImageTxt  = "Image";
         this.pictureImage.innerHTML = this.pictureImageTxt;

@@ -9,10 +9,11 @@
             justify-content: center;
             border-radius: 8px;
             width: 344px;
+            height: 212px;
             aspect-ratio: 16/9;
             border: 2px solid $-gray-100;
             cursor:pointer;
-            .Image{
+            .input-image{
                 display: none;
             }
             .PictureCap{
@@ -27,7 +28,7 @@
         }
     }
     .FormImageTitle{
-        .item-title{
+        .input-titulo{
             margin-bottom: 20px;
             width: 328px;
             height: 56px;
@@ -40,7 +41,7 @@
     .FormImageDesc{
         width: 418px;
         height: 136px;
-        .item-desc{
+        .input-descricao{
             width: 418px;
             height: 136px;
             padding: 40px 20px 0;
@@ -50,7 +51,7 @@
         }
     }
 }
-.add{
+.button-submit{
     position: absolute;
     margin-top: 20px;
     left: 85%;
