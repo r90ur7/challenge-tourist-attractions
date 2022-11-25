@@ -1,6 +1,30 @@
+export const slick ={
+    slick: $('#slikcon').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+        })
+    }
 export class Formulario{
     constructor(){
-        this.file = [];
+        this.file = [
+            {   Title: "Pão de Açúcar",
+                Description:"Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+                Image:"./img/image-item-list-Pão-de-açucar.jpg"
+            },
+            {   Title: "Cristor Redentor",
+                Description:"Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+                Image:"./img/image-item-list-Cristo_Redentor.jpg"
+            },
+            {   Title: "Ilha Grande",
+                Description:"Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+                Image:"./img/image-item-list-ilha_Grande.jpg"
+            },
+            {   Title: "Centro Histórico de Paraty",
+                Description:"Amet minim mollit non deserunt ullamco est sit aliqua dolor dosa amet sint. Velit officia consece duis enim velit mollit.",
+                Image:"./img/image-item-list-Centro_historico.jpg"
+            }
+        ];
 
         this.selectors();
         this.events();
@@ -29,6 +53,7 @@ export class Formulario{
                 Image: img_Name,
             }
             this.file.push(card);
+            console.log(card)
             this.RenderToSlick();
             this.reset();
         }
@@ -37,14 +62,16 @@ export class Formulario{
         let SlickStructure = ""
         this.file.forEach(function(card){
             SlickStructure += `
-            <figure class="SlickImageItem">
-                    <img class="image-item" type="image"
-                        src="${card.Image}"
-                        alt="Ponto Turístico" placeholder="Imagem" disabled
-                        />
-                    <h2  class="title_item">${card.Title}</h2>
-                    <figcaption>${card.Description}</figcaption>
-            </figure>
+            <li class="container-item-list">
+                <figure class="SlickImageItem">
+                        <img class="image-item" type="image"
+                            src="${card.Image}"
+                            alt="Ponto Turístico" placeholder="Imagem" disabled
+                            />
+                        <h2  class="title_item">${card.Title}</h2>
+                        <figcaption class="description-item-list" >${card.Description}</figcaption>
+                </figure>
+            </li>
             `
         });
         this.Cards.innerHTML = SlickStructure;
@@ -55,6 +82,4 @@ export class Formulario{
         // this.pictureImage.innerHTML = this.pictureImageTxt;
     }
 
-}
-export const slick ={
 }

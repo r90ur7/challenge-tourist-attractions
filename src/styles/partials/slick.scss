@@ -1,3 +1,16 @@
 .Slicklist{
     list-style: none;
 }
+.slick-arrow{
+    position:absolute;
+    left: 0;
+    top: 50%;
+    transform: translatex(-90px);
+    z-index: 1;
+}
+.slick-next{
+    transform: translatex(1080px);
+}
+.WrapperSlickConteiner{
+    margin-bottom: 165px;
+}
