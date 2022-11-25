@@ -6,6 +6,8 @@ const source = require("vinyl-source-stream");
 const uglify = require('gulp-uglify');
 const buffer = require('vinyl-buffer');
 const connect = require('gulp-connect');
+// const image = require('gulp-image');
+// const webp = require('gulp-webp');
 const path={
     html:{
         all:"src/templates/**/*.html",
@@ -20,7 +22,9 @@ const path={
         main:"src/scripts/apps.js"
 
     },
+    Images:"src/assets/img/**/*.jpg",
     output:"dist",
+    outputimg:"dist/img",
 };
 
 function server(){
@@ -31,12 +35,12 @@ function server(){
     })
     }
 
-
-function sentinel(){
-    watch(path.html.all,{ignoreInitial:false},html);
-    watch(path.styles.all,{ignoreInitial:false},styles);
-    watch(path.scripts.all,{ignoreInitial:false},scripts);
-}
+    function sentinel(){
+        watch(path.html.all,{ignoreInitial:false},html);
+        watch(path.Images,{ignoreInitial:false},Image);
+        watch(path.styles.all,{ignoreInitial:false},styles);
+        watch(path.scripts.all,{ignoreInitial:false},scripts);
+    }
 
 function styles() {
     return src(path.styles.main)
@@ -62,6 +66,11 @@ function styles() {
 function html() {
     return src(path.html.all)
     .pipe(dest(path.output))
+    .pipe(connect.reload());
+    }
+function Image() {
+    return src(path.Images)
+    .pipe(dest(path.outputimg))
     .pipe(connect.reload());
     }
 

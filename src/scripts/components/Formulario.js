@@ -6,21 +6,14 @@ export class Formulario{
         this.events();
     }
     selectors(){
-        this.inputFile = document.querySelector(".Image");
-        this.pictureImage = document.querySelector(".PictureCap");
-        this.pictureImageTxt = "Imagem";
         this.form = document.querySelector('.FormConteiner');
         this.slick = document.querySelector(".WrapperSlickConteiner")
         this.Titulo = document.querySelector(".item-title");
         this.Description = document.querySelector(".item-desc");
-        this.Cards = document.querySelector(".Slicklkist");
-        this.reader = new FileReader();
-        this.pictureImage.innerHTML = this.pictureImageTxt;
+        this.Cards = document.querySelector(".Slicklist");
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
-        this.reader.addEventListener("load", this.RenderImage.bind(this));
-        this.inputFile.addEventListener("change",this.RenderImage.bind(this));
     }
 
     addToSlick(even){
@@ -59,26 +52,6 @@ export class Formulario{
     reset(){
         this.Titulo.value = "";
         this.Description.value = "";
-        this.pictureImage.innerHTML = this.pictureImageTxt;
+        // this.pictureImage.innerHTML = this.pictureImageTxt;
     }
-    RenderImage(e) {
-        const inputTarget = e.target;
-        const file = inputTarget.files[0];
-        this.Read()
-        if (file) {
-        reader.readAsDataURL(file);
-    } else {
-        this.pictureImage.innerHTML = this.pictureImageTxt;
-        }
-    }
-    Read (e) {
-        const readerTarget = e.target;
-
-        const img = document.createElement("img");
-        img.src = readerTarget.result;
-        img.classList.add("picture__img");
-
-        this.pictureImage.innerHTML = "";
-        this.pictureImage.appendChild(img);
-        };
 }
