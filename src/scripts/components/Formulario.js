@@ -1,10 +1,4 @@
-export const slick ={
-    slick: $('#slikcon').slick({
-        infinite: true,
-        slidesToShow: 3,
-        slidesToScroll: 3
-        })
-    }
+
 export class Formulario{
     constructor(){
         this.file = [
@@ -25,16 +19,16 @@ export class Formulario{
                 Image:"./img/image-item-list-Centro_historico.jpg"
             }
         ];
-
         this.selectors();
         this.events();
+        this.adcionarSlick();
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
-        this.slick = document.querySelector(".WrapperSlickConteiner")
+        this.slick = document.querySelector(".WrapperSlickConteiner");
         this.Titulo = document.querySelector(".input-titulo");
         this.Description = document.querySelector(".input-descricao");
-        this.Cards = document.querySelector(".Slicklist");
+        this.Cards = document.querySelector('.Slicklist');
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
@@ -53,7 +47,6 @@ export class Formulario{
                 Image: img_Name,
             }
             this.file.push(card);
-            console.log(card)
             this.RenderToSlick();
             this.reset();
         }
@@ -74,12 +67,28 @@ export class Formulario{
             </li>
             `
         });
+        this.removerslick();
         this.Cards.innerHTML = SlickStructure;
+        this.adcionarSlick();
+        console.log(this.Cards,"Chegou no final do render")
     }
     reset(){
         this.Titulo.value = "";
         this.Description.value = "";
         // this.pictureImage.innerHTML = this.pictureImageTxt;
+    }
+    removerslick(){
+        console.log('Removendo slick');
+        $('.slick').slick('unslick');
+
+    }
+    adcionarSlick(){
+        console.log('adicionando slick');
+        $('.slick').slick({
+            infinite: true,
+            slidesToShow: 3,
+            slidesToScroll: 3
+            });
     }
 
 }
