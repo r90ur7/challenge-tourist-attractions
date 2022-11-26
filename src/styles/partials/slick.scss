@@ -9,6 +9,11 @@
     top: 50%;
     transform: translatex(-90px);
     z-index: 1;
+    color: $-gray-400;
+    background: $-white;
+    width: 14px;
+    height: 29px;
+    border: 0;
 }
 .slick-next{
     transform: translatex(1080px);

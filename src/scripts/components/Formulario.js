@@ -1,4 +1,3 @@
-
 export class Formulario{
     constructor(){
         this.file = [
@@ -26,6 +25,7 @@ export class Formulario{
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
+        this.arrow = document.querySelector('.slick-arrow');
         this.slick = document.querySelector(".WrapperSlickConteiner");
         this.Titulo = document.querySelector(".input-titulo");
         this.Description = document.querySelector(".input-descricao");
@@ -88,6 +88,7 @@ export class Formulario{
 
     }
     adcionarSlick(){
+        let arrow =""
         console.log('adicionando slick');
         $('.slick').slick({
             dots:true,
@@ -95,6 +96,7 @@ export class Formulario{
             slidesToShow: 3,
             slidesToScroll: 3
             });
+
     }
 
 }
