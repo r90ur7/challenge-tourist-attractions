@@ -22,6 +22,7 @@ export class Formulario{
         this.selectors();
         this.events();
         this.adcionarSlick();
+        this.RenderToSlick();
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
@@ -29,6 +30,9 @@ export class Formulario{
         this.Titulo = document.querySelector(".input-titulo");
         this.Description = document.querySelector(".input-descricao");
         this.Cards = document.querySelector('.Slicklist');
+        this.pictureImage = document.querySelector(".PictureCap");
+        this.pictureImageTxt = "Imagem";
+        this.pictureImage.innerHTML = this.pictureImageTxt;
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
@@ -56,15 +60,16 @@ export class Formulario{
         this.file.forEach(function(card){
             SlickStructure += `
             <li class="container-item-list">
-                <figure class="SlickImageItem">
-                        <img class="image-item" type="image"
-                            src="${card.Image}"
-                            alt="Ponto Turístico" placeholder="Imagem" disabled
-                            />
-                        <h2  class="title_item">${card.Title}</h2>
-                        <figcaption class="description-item-list" >${card.Description}</figcaption>
-                </figure>
-            </li>
+                        <figure class="SlickImageItem">
+                            <img class="image-item" type="image"
+                                src="${card.Image}"
+                                alt="Ponto Turístico" placeholder="Imagem"
+                                disabled
+                                />
+                            <h2 class="title-item-list">${card.Title}</h2>
+                            <figcaption class="description-item-list">${card.Description}</figcaption>
+                        </figure>
+                    </li>
             `
         });
         this.removerslick();
@@ -75,7 +80,7 @@ export class Formulario{
     reset(){
         this.Titulo.value = "";
         this.Description.value = "";
-        // this.pictureImage.innerHTML = this.pictureImageTxt;
+        this.pictureImage.innerHTML = this.pictureImageTxt;
     }
     removerslick(){
         console.log('Removendo slick');
@@ -85,6 +90,7 @@ export class Formulario{
     adcionarSlick(){
         console.log('adicionando slick');
         $('.slick').slick({
+            dots:true,
             infinite: true,
             slidesToShow: 3,
             slidesToScroll: 3
