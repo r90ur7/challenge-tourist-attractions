@@ -25,21 +25,26 @@ export class Formulario{
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
+        this.wth = window.screen.width;
         this.Titulo = document.querySelector(".input-titulo");
         this.Description = document.querySelector(".input-descricao");
         this.Cards = document.querySelector('.Slicklist');
         this.pictureImage = document.querySelector(".PictureCap");
         this.pictureImageTxt = "Imagem";
         this.pictureImage.innerHTML = this.pictureImageTxt;
+        this.ativado =console.log("Preview ativado");
+        this.reader = new FileReader();
+        this.inputFile = document.querySelector(".input-image");
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
+        this.inputFile.addEventListener("change",this.Reader.bind(this));
     }
     addToSlick(even){
         even.preventDefault();
         const Title_Name = even.target["Título"].value;
         const Descr_Name = even.target["descr"].value;
-        const img_Name = even.target["Image"].value;
+        const img_Name = this.pictureImage.children[0].src;
         console.log(Title_Name, Descr_Name,img_Name);
         if(Title_Name != "" && Descr_Name != "" && img_Name != ""){
             const card = {
@@ -82,18 +87,52 @@ export class Formulario{
         this.pictureImage.innerHTML = this.pictureImageTxt;
     }
     removerslick(){
-        console.log('Removendo slick');
-        $('.slick').slick('unslick');
-    }
+            console.log('Removendo slick');
+            $('.slick').slick('unslick');
+        }
     adcionarSlick(){
-        console.log('adicionando slick');
-        $('.slick').slick({
-            dots:true,
-            infinite: true,
-            slidesToShow: 4,
-            slidesToScroll: 2,
-            prevArrow: $(".Fakebutton-Prev"),
-            nextArrow: $(".Fakebutton-Next"),
+            console.log('adicionando slick');
+            $('.slick').slick({
+                dots:true,
+                infinite: true,
+                slidesToShow: 4,
+                slidesToScroll: 4,
+                variableWidth:true,
+                prevArrow: $(".Fakebutton-Prev"),
+                nextArrow: $(".Fakebutton-Next"),
+                });
+    }
+    Reader(even){
+        // console.log("cheguei no reader")
+        const inputTarget = even.target;
+        // console.log(inputTarget,"cheguei no InputTarget")
+        const file = inputTarget.files[0];
+        // console.log("cheguei no file \n",file);
+
+        if(file){
+            // console.log("cheguei no if")
+            // console.log(this.pictureImage)
+            // console.log("executei o reader \n",this.reader);
+            this.reader.addEventListener("load",(e)=>{
+                this.pictureImage = document.querySelector(".PictureCap");
+                // console.log("Estou lendo o reader")
+                const readerTarget = e.target;
+                // console.log(readerTarget)
+                let img = document.createElement("img");
+                img.src = readerTarget.result;
+                console.log(img.src)
+                img.classList.add("picture__img");
+                // console.log(img)
+                // console.log("eu li o reader")
+                // console.log(this.pictureImage)
+                this.pictureImage.innerHTML = "";
+                this.pictureImage.appendChild(img);
             });
+            this.reader.readAsDataURL(file);
+        }else{
+            // console.log("Não li file nenhum")
+            this.pictureImage.innerHTML = this.pictureImageTxt;
+            // console.log(this.pictureImage)
+        }
     }
 }

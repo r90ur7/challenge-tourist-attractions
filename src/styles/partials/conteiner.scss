@@ -12,9 +12,12 @@
     }
 }
 .WrapperSlickConteiner{
-    max-width: 100%;
-    margin: 0 auto;
-    padding: 0 130px;
+    display: inline-flex;
+    position: relative;
+    padding-inline: 130px;
+    flex-direction: column;
+    width: 1460px;
+    height: 0 auto;
 }
 .FormConteiner{
     position: absolute;

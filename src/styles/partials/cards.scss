@@ -4,13 +4,12 @@
     height: 38px;
 }
 .container-item-list{
-    display: flex;
     width: 280px !important;
+    margin-right: 22px;
+    margin-bottom: 22px;
     height: 430px;
     box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
     border-radius: 8px;
-    margin-right: 22px;
-    align-items: flex-start;
     .description-item-list{
         font-weight: 400;
         font-size: 16px;
