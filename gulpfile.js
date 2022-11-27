@@ -22,7 +22,7 @@ const path={
         main:"src/scripts/apps.js"
 
     },
-    Images:"src/assets/img/**/*.jpg",
+    Images:"src/assets/img/**/**",
     output:"dist",
     outputimg:"dist/img",
 };
