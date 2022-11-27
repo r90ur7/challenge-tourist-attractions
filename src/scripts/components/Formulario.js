@@ -25,8 +25,6 @@ export class Formulario{
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
-        this.arrow = document.querySelector('.slick-arrow');
-        this.slick = document.querySelector(".WrapperSlickConteiner");
         this.Titulo = document.querySelector(".input-titulo");
         this.Description = document.querySelector(".input-descricao");
         this.Cards = document.querySelector('.Slicklist');
@@ -37,7 +35,6 @@ export class Formulario{
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
     }
-
     addToSlick(even){
         even.preventDefault();
         const Title_Name = even.target["Título"].value;
@@ -61,13 +58,15 @@ export class Formulario{
             SlickStructure += `
             <li class="container-item-list">
                         <figure class="SlickImageItem">
-                            <img class="image-item" type="image"
+                            <img data-test="image-item-list" class="image-item" type="image"
                                 src="${card.Image}"
                                 alt="Ponto Turístico" placeholder="Imagem"
                                 disabled
                                 />
-                            <h2 class="title-item-list">${card.Title}</h2>
-                            <figcaption class="description-item-list">${card.Description}</figcaption>
+                            <div class="card-text">
+                                <h2 class="title-item-list">${card.Title}</h2>
+                                <figcaption class="description-item-list">${card.Description}</figcaption>
+                            </div>
                         </figure>
                     </li>
             `
@@ -85,18 +84,16 @@ export class Formulario{
     removerslick(){
         console.log('Removendo slick');
         $('.slick').slick('unslick');
-
     }
     adcionarSlick(){
-        let arrow =""
         console.log('adicionando slick');
         $('.slick').slick({
             dots:true,
             infinite: true,
-            slidesToShow: 3,
-            slidesToScroll: 3
+            slidesToShow: 4,
+            slidesToScroll: 2,
+            prevArrow: $(".Fakebutton-Prev"),
+            nextArrow: $(".Fakebutton-Next"),
             });
-
     }
-
 }
