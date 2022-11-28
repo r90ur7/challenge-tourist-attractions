@@ -22,6 +22,7 @@ export class Formulario{
         this.events();
         this.adcionarSlick();
         this.RenderToSlick();
+        this.start();
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
@@ -38,7 +39,9 @@ export class Formulario{
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
+        this.form.addEventListener("submit",this.start.bind(this));
         this.inputFile.addEventListener("change",this.Reader.bind(this));
+        window.addEventListener('resize', this.start.bind(this));
     }
     addToSlick(even){
         even.preventDefault();
@@ -55,6 +58,7 @@ export class Formulario{
             this.file.push(card);
             this.RenderToSlick();
             this.reset();
+            this.start();
         }
     }
     RenderToSlick(){
@@ -76,9 +80,13 @@ export class Formulario{
                     </li>
             `
         });
-        this.removerslick();
-        this.Cards.innerHTML = SlickStructure;
-        this.adcionarSlick();
+        if(this.wth > 1024){
+            this.removerslick();
+            this.Cards.innerHTML = SlickStructure;
+            this.adcionarSlick();
+        }else{
+            this.Cards.innerHTML = SlickStructure;
+        }
         console.log(this.Cards,"Chegou no final do render")
     }
     reset(){
@@ -100,6 +108,10 @@ export class Formulario{
                 variableWidth:true,
                 prevArrow: $(".Fakebutton-Prev"),
                 nextArrow: $(".Fakebutton-Next"),
+                responsive:[{
+                        breakpoint: 1024,
+                        settings: 'unslick',
+                    }],
                 });
     }
     Reader(even){
@@ -129,10 +141,22 @@ export class Formulario{
                 this.pictureImage.appendChild(img);
             });
             this.reader.readAsDataURL(file);
+            even.target.value = ""
         }else{
             // console.log("Não li file nenhum")
             this.pictureImage.innerHTML = this.pictureImageTxt;
             // console.log(this.pictureImage)
+        }
+    }
+    start(){
+        console.log(window.screen.width)
+        console.log("ativei")
+        if(window.screen.width > 1024){
+            console.log("estou no 1024")
+            this.adcionarSlick();
+        }else{
+            console.log("estou no unslick")
+            $('.slick').slick('unslick');
         }
     }
 }
