@@ -31,7 +31,7 @@
                     top: 343px;
                     margin: 16px 0 0;
                     left: calc(100% / 40);
-                    width: calc(100% / 0.128);
+                    width: calc(100% / 1.15);
                 }
             }
             .FormImage{
@@ -40,9 +40,10 @@
                 position: absolute;
                 top: 92px;
                 margin-top: 40px;
+                width: 100%;
                 .select_label{
                     position: relative;
-                    width: calc(100% / 0.25);
+                    width: calc(100% / 1.12);
                     .PictureCap{
                         .picture__img{
                             position: absolute;
@@ -52,7 +53,7 @@
                     }
                 }
                 .input-image{
-                    width: calc(100% / 1.6);
+                    width: 343px;
                     height: 212px;
                 }
             }
@@ -65,7 +66,7 @@
                     top: 413px;
                     left: calc(100% / 40);
                     bottom: -64px;
-                    width: calc(100% / 0.128);
+                    width: calc(100% / 1.128);
                     height: 136px;
                 }
             }
@@ -73,7 +74,7 @@
             .button-submit{
                 top: 580px;
                 left:  calc(100% / 32);
-                width: calc(100% / 0.125);
+                width: calc(100% / 1.125);
                 margin: 16px 16px 16px 10px;
             }
     }
@@ -99,7 +100,7 @@
         margin-bottom: 24px;
         width: calc(100% / 1) !important;
         .image-item{
-            width: 248px;
+            width: 100%;
             border-radius: 8px;
         }
         .SlickImageItem{
@@ -116,53 +117,89 @@
             line-height: 120%;
             left: calc(100% - 92%);
     }
+    .FormConteiner{
+        width: 100%;
+    }
 }
 @media screen and (min-width: 491px) and (max-width: 1024px){
+    .Slicklist{
+        width: 100%;
+        padding: 0 16px 0 16px;
+    }
     .WrapperFormConteiner{
         padding: 0;
         height: 650px;
         .title-form{
-            text-align: center;
-            width: 332px;
-            height: 76px;
-            margin: 40px 16px;
+            position: absolute;
+            width: 90%;
+            height: 78px;
+            margin: 40px 0px 40px 0;
+            line-height: 120%;
+            left: calc(100% - 96%);
         }
         .TuristInputs {
+            width: 100%;
+            position: relative;
             justify-content: center;
             width: 100%;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
             margin: 16px;
             .FormImageTitle{
+                position: relative;
+                width: 100%;
                 .input-titulo{
                     width: 343px;
                     height: 56px;
+                    position: absolute;
+                    top: 343px;
+                    margin: 16px 0 0;
+                    left: 0;
+                    width: calc(100% / 1.110);
                 }
             }
             .FormImage{
+                width: 100%;
                 flex: 0;
                 margin: 0 0 16px 0 ;
+                position: absolute;
+                top: 92px;
+                margin-top: 40px;
+                .select_label{
+                    position: relative;
+                    width: calc(100% / 1.115);
+                    .PictureCap{
+                        .picture__img{
+                            position: absolute;
+                            left: calc(100% / 280);
+                            width: 240px;
+                        }
+                    }
+                }
                 .input-image{
-                    width: 100%;
+                    width: calc(100% / 1.6);
                     height: 212px;
                 }
             }
             .FormImageDesc{
-                justify-content: center;
+                position: relative;
                 width: 100%;
-                flex-direction: column;
-                align-items: center;
                 .input-descricao{
-                    margin: 0 12px 0 12px;
-                    width: 94%;
+                    position: absolute;
+                    margin: 16px 0 0;
+                    top: 413px;
+                    left: 0;
+                    bottom: -64px;
+                    width: calc(100% / 1.110);
                     height: 136px;
                 }
             }
             }
             .button-submit{
-                left: 0;
-                width: 100%;
-                margin: 16px 40px 16px 10px;
+                top: 580px;
+                left:  0;
+                width: calc(100% / 1.10);
+                margin: 23px 16px 40px 10px;
             }
     }
     .wrapperFormInput{
@@ -174,7 +211,7 @@
         align-content: center;
     }
     .WrapperSlickConteiner{
-        margin: 0px 0px 22px 16px;
+        margin: 0px 0px 22px 0;
         display: flex;
         flex-direction: column;
         width: 100%;
@@ -184,11 +221,30 @@
         justify-content: center;
     }
     .container-item-list{
+        height: 710px;
         margin-bottom: 24px;
-        width: calc(100% / 0.35) !important
+        width: calc(100% / 1) !important;
+        .image-item{
+            width: 100%;
+            height: 570px;
+            border-radius: 8px;
+        }
+        .SlickImageItem{
+            width: 100%;
+        }
     }
     .arrow{
         display: none;
+    }
+    .title-list{
+            width: 90%;
+            height: 78px;
+            margin: 40px 0px 40px 0;
+            line-height: 120%;
+            left: calc(100% - 92%);
+    }
+    .FormConteiner{
+        width: 100%;
     }
 }
 @media screen and (min-width: 2500px){
