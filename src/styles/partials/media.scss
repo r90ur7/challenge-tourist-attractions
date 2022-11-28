@@ -263,18 +263,16 @@
     }
     .WrapperSlickConteiner{
         display: inline-flex;
-        position: relative;
-        padding-inline: 130px;
-        flex-direction: column;
-        max-width: 100%;
         width: 2500px;
         height:934px;
-        align-content: center;
     }
     .TuristInputs{
+        width: 100%;
         .FormImage{
+            width: 100%;
+            flex: 1;
             .select_label{
-                width: 600px;
+                width: 100%;
                 height: 400px;
                 .PictureCap{
                     font-size: 32px;
@@ -286,29 +284,33 @@
             }
         }
         .FormImageTitle{
+            width: 100%;
             .input-titulo{
+                width: calc(100% + 46.88%);
+                height: 64px;
                 font-size: 32px;
             }
         }
         .FormImageDesc{
             .input-descricao{
-                width: 725px;
+                width: calc(100% + 84%);
                 height: 320px;
                 font-size: 32px;
             }
         }
     }
     .button-submit{
+        position: absolute;
         width: 202px;
         height: 80px;
-        left: 1146px;
+        left: calc(100% / 0.920); //1196px
         font-size: 32px;
     }
     .title-list{
         font-size: 32px
     }
     .SlickImageItem{
-        width: 544px;
+        width: 100%;
         height: 768px;
     }
     .container-item-list{
@@ -348,5 +350,8 @@
         width: 28px;
         height: 28px;
         margin: 0 0.12rem;
+    }
+    .FormConteiner{
+        width: calc(100% / 2.399);
     }
     }
