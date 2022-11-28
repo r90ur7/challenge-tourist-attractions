@@ -22,6 +22,7 @@ export class Formulario{
         this.events();
         this.adcionarSlick();
         this.RenderToSlick();
+        this.start();
     }
     selectors(){
         this.form = document.querySelector('.FormConteiner');
@@ -57,6 +58,7 @@ export class Formulario{
             this.file.push(card);
             this.RenderToSlick();
             this.reset();
+            this.start();
         }
     }
     RenderToSlick(){
@@ -78,9 +80,13 @@ export class Formulario{
                     </li>
             `
         });
-        this.removerslick();
-        this.Cards.innerHTML = SlickStructure;
-        this.adcionarSlick();
+        if(this.wth > 1024){
+            this.removerslick();
+            this.Cards.innerHTML = SlickStructure;
+            this.adcionarSlick();
+        }else{
+            this.Cards.innerHTML = SlickStructure;
+        }
         console.log(this.Cards,"Chegou no final do render")
     }
     reset(){
@@ -135,6 +141,7 @@ export class Formulario{
                 this.pictureImage.appendChild(img);
             });
             this.reader.readAsDataURL(file);
+            even.target.value = ""
         }else{
             // console.log("Não li file nenhum")
             this.pictureImage.innerHTML = this.pictureImageTxt;
@@ -142,11 +149,14 @@ export class Formulario{
         }
     }
     start(){
+        console.log(window.screen.width)
         console.log("ativei")
-        if(this.wth > 1024){
+        if(window.screen.width > 1024){
+            console.log("estou no 1024")
             this.adcionarSlick();
         }else{
-            this.removerslick();
+            console.log("estou no unslick")
+            $('.slick').slick('unslick');
         }
     }
 }
