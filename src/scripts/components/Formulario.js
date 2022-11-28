@@ -38,7 +38,9 @@ export class Formulario{
     }
     events(){
         this.form.addEventListener("submit",this.addToSlick.bind(this));
+        this.form.addEventListener("submit",this.start.bind(this));
         this.inputFile.addEventListener("change",this.Reader.bind(this));
+        window.addEventListener('resize', this.start.bind(this));
     }
     addToSlick(even){
         even.preventDefault();
@@ -100,6 +102,10 @@ export class Formulario{
                 variableWidth:true,
                 prevArrow: $(".Fakebutton-Prev"),
                 nextArrow: $(".Fakebutton-Next"),
+                responsive:[{
+                        breakpoint: 1024,
+                        settings: 'unslick',
+                    }],
                 });
     }
     Reader(even){
@@ -133,6 +139,14 @@ export class Formulario{
             // console.log("Não li file nenhum")
             this.pictureImage.innerHTML = this.pictureImageTxt;
             // console.log(this.pictureImage)
+        }
+    }
+    start(){
+        console.log("ativei")
+        if(this.wth > 1024){
+            this.adcionarSlick();
+        }else{
+            this.removerslick();
         }
     }
 }
