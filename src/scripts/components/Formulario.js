@@ -48,7 +48,6 @@ export class Formulario{
         const Title_Name = even.target["Título"].value;
         const Descr_Name = even.target["descr"].value;
         const img_Name = this.pictureImage.children[0].src;
-        console.log(Title_Name, Descr_Name,img_Name);
         if(Title_Name != "" && Descr_Name != "" && img_Name != ""){
             const card = {
                 Title: Title_Name,
@@ -65,29 +64,29 @@ export class Formulario{
         let SlickStructure = ""
         this.file.forEach(function(card){
             SlickStructure += `
-            <li class="container-item-list">
-                        <figure  data-test="container-item-list" class="SlickImageItem">
+            <li data-test="container-item-list" class="container-item-list">
+                        <figure data-test="item-list" class="SlickImageItem">
                             <img data-test="image-item-list" class="image-item" type="image"
                                 src="${card.Image}"
                                 alt="Ponto Turístico" placeholder="Imagem"
                                 disabled
                                 />
                             <div class="card-text">
-                                <h2 class="title-item-list">${card.Title}</h2>
-                                <figcaption class="description-item-list">${card.Description}</figcaption>
+                                <h2 data-test="title-item-list" class="title-item-list">${card.Title}</h2>
+                                <figcaption data-test="description-item-list" class="description-item-list">
+                                ${card.Description}</figcaption>
                             </div>
                         </figure>
                     </li>
             `
         });
-        if(this.wth > 1024){
+        if(window.screen.width > 1024){
             this.removerslick();
             this.Cards.innerHTML = SlickStructure;
             this.adcionarSlick();
         }else{
             this.Cards.innerHTML = SlickStructure;
         }
-        console.log(this.Cards,"Chegou no final do render")
     }
     reset(){
         this.Titulo.value = "";
@@ -95,11 +94,9 @@ export class Formulario{
         this.pictureImage.innerHTML = this.pictureImageTxt;
     }
     removerslick(){
-            console.log('Removendo slick');
             $('.slick').slick('unslick');
         }
     adcionarSlick(){
-            console.log('adicionando slick');
             $('.slick').slick({
                 dots:true,
                 infinite: true,
@@ -115,47 +112,31 @@ export class Formulario{
                 });
     }
     Reader(even){
-        // console.log("cheguei no reader")
         const inputTarget = even.target;
-        // console.log(inputTarget,"cheguei no InputTarget")
         const file = inputTarget.files[0];
-        // console.log("cheguei no file \n",file);
 
         if(file){
-            // console.log("cheguei no if")
-            // console.log(this.pictureImage)
-            // console.log("executei o reader \n",this.reader);
             this.reader.addEventListener("load",(e)=>{
                 this.pictureImage = document.querySelector(".PictureCap");
-                // console.log("Estou lendo o reader")
                 const readerTarget = e.target;
-                // console.log(readerTarget)
                 let img = document.createElement("img");
                 img.src = readerTarget.result;
-                console.log(img.src)
                 img.classList.add("picture__img");
-                // console.log(img)
-                // console.log("eu li o reader")
-                // console.log(this.pictureImage)
                 this.pictureImage.innerHTML = "";
                 this.pictureImage.appendChild(img);
             });
             this.reader.readAsDataURL(file);
             even.target.value = ""
         }else{
-            // console.log("Não li file nenhum")
             this.pictureImage.innerHTML = this.pictureImageTxt;
-            // console.log(this.pictureImage)
         }
     }
     start(){
         console.log(window.screen.width)
         console.log("ativei")
         if(window.screen.width > 1024){
-            console.log("estou no 1024")
             this.adcionarSlick();
         }else{
-            console.log("estou no unslick")
             $('.slick').slick('unslick');
         }
     }

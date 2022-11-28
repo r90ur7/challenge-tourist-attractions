@@ -13,6 +13,9 @@ h{
     color:$-black;
 }
 textarea{
-    resize:none;
-    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    resize: none;
+    font-family: "Roboto",sans-serif;
+    height: 99px;
+    border: 0;
 }
