@@ -66,7 +66,7 @@ export class Formulario{
         this.file.forEach(function(card){
             SlickStructure += `
             <li class="container-item-list">
-                        <figure class="SlickImageItem">
+                        <figure  data-test="container-item-list" class="SlickImageItem">
                             <img data-test="image-item-list" class="image-item" type="image"
                                 src="${card.Image}"
                                 alt="Ponto Turístico" placeholder="Imagem"
@@ -103,8 +103,8 @@ export class Formulario{
             $('.slick').slick({
                 dots:true,
                 infinite: true,
-                slidesToShow: 4,
-                slidesToScroll: 4,
+                slidesToShow: 3,
+                slidesToScroll: 1,
                 variableWidth:true,
                 prevArrow: $(".Fakebutton-Prev"),
                 nextArrow: $(".Fakebutton-Next"),
