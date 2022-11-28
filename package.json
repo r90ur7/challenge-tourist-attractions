@@ -1,0 +1,32 @@
+{
+    "name": "challenge-tourist-attractions-gustavo-rallenson",
+    "version": "1.0.0",
+    "description": "",
+    "main": "gulpfile.js",
+    "scripts": {
+        "test": "echo \"teste.js\" && exit 1",
+        "gu": "gulp"
+    },
+    "repository": {
+        "type": "git",
+        "url": "ssh://git@gitea.ecommercetools.com.br:22022/Gustavo_Rallenson_Goncalves_Da_Silva/challenge-tourist-attractions-Gustavo-Rallenson.git"
+    },
+    "author": "Rallenson",
+    "license": "ISC",
+    "devDependencies": {
+        "@babel/core": "^7.20.2",
+        "@babel/preset-env": "^7.20.2",
+        "babelify": "^10.0.0",
+        "browserify": "^17.0.0",
+        "gulp": "^4.0.2",
+        "gulp-connect": "^5.7.0",
+        "gulp-image": "^6.3.1",
+        "gulp-sass": "^5.1.0",
+        "gulp-uglify": "^3.0.2",
+        "gulp-webp": "^4.0.1",
+        "mozjpeg": "^8.0.0",
+        "sass": "^1.56.1",
+        "vinyl-buffer": "^1.0.1",
+        "vinyl-source-stream": "^2.0.0"
+    }
+}

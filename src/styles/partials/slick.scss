@@ -1,0 +1,64 @@
+.Slicklist{
+    list-style: none;
+}
+.slick-dots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    bottom: 0.65%;
+    margin:0 0 0 0;
+    & button{
+        display: block;
+        width: 10px;
+        height: 10px;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        background: $-gray-500;
+        color: $-gray-500;
+        // opacity: 0;
+    }
+    & li{
+        margin: 0 0.12rem;
+        border-radius: 50%;
+    }
+    & li.slick-active button{
+        width: 17px;
+        height: 17px;
+        background-color: $-white;
+        border: 0.5px solid  $-gray-400;
+    }
+    & li button{
+        text-indent: -9999px;
+        overflow:hidden;
+    }
+}
+.arrow{
+    position: absolute;
+    transform: translatex(-90px);
+    left: 150px;
+    top: 55%;
+    z-index: 1;
+    margin: 0 10px;
+    width: 14px;
+    height: 30px;
+    background-repeat: no-repeat;
+    border: 0;
+    background-color: $-white;
+}
+.Fakebutton-Prev{
+    background-image: url('./img/Seta.svg');
+
+}
+.Fakebutton-Next{
+    background-image: url('./img/SetaDireita.svg');
+    transform: translatex(1217px);;
+}
+.SlickImageItem{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 280px;
+    height: 424px;
+}
