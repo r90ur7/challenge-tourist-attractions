@@ -1,0 +1,21 @@
+p,
+input,
+button,
+span
+{
+    color:$-gray-400;
+    font-family: 'Roboto', sans-serif;
+}
+button{
+    cursor:pointer;
+}
+h{
+    color:$-black;
+}
+textarea{
+    width: 100%;
+    resize: none;
+    font-family: "Roboto",sans-serif;
+    height: 99px;
+    border: 0;
+}
