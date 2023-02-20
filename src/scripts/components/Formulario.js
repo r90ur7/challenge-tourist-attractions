@@ -77,7 +77,7 @@ export class Formulario{
                                 ${card.Description}</figcaption>
                             </div>
                         </figure>
-                    </li>
+            </li>
             `
         });
         if(window.screen.width > 1024){
