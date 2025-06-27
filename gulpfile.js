@@ -23,8 +23,8 @@ const path={
 
     },
     Images:"src/assets/img/**/**",
-    output:"dist",
-    outputimg:"dist/img",
+    output:"docs",
+    outputimg:"docs/img",
 };
 
 function server(){
@@ -75,4 +75,5 @@ function Image() {
     }
 
         exports.default = parallel(server,sentinel);
+        exports.build = parallel(html, styles, scripts, Image);
         // exports.server = server;
