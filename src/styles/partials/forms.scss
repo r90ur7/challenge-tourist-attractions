@@ -1,82 +1,161 @@
-.TuristInputs{
-    display:flex;
-    .FormImage{
-        flex:1;
-        margin-right: 20px;
-        .select_label{
+@use "sass:color";
+
+// Mobile-first forms
+.TuristInputs {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+
+    @include tablet-up {
+        flex-direction: row;
+        gap: 24px;
+        align-items: flex-start;
+    }
+
+    .FormImage {
+        width: 100%;
+
+        @include tablet-up {
+            flex: 1;
+            max-width: 344px;
+        }
+
+        .select_label {
             display: flex;
             align-items: center;
             justify-content: center;
             border-radius: 8px;
-            width: 344px;
-            height: 212px;
+            width: 100%;
+            height: 200px;
             border: 2px solid $-gray-100;
-            cursor:pointer;
-            .input-image{
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+
+            @include tablet-up {
+                height: 212px;
+            }
+
+            .input-image {
                 display: none;
             }
-            .PictureCap{
+
+            .PictureCap {
                 width: 100%;
                 height: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                .picture__img{
-                    height: 212px;
-                    width: 344px;
-                    border-radius: 8px;
-                    // height: 100%;
+                color: $-gray-400;
+                font-size: 14px;
+
+                .picture__img {
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    border-radius: 6px;
                 }
             }
         }
     }
-    .FormImageTitle{
-        .input-titulo{
-            margin-bottom: 20px;
-            width: 328px;
+
+    .wrapperFormInput {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        width: 100%;
+
+        @include tablet-up {
+            flex: 1;
+            gap: 20px;
+        }
+    }
+
+    .FormImageTitle {
+        width: 100%;
+
+        .input-titulo {
+            width: 100%;
             height: 56px;
             padding: 16px;
             border-radius: 8px;
             border: 2px solid $-gray-100;
             font-size: 16px;
+            font-family: inherit;
+            outline: none;
+            transition: border-color 0.2s ease;
+
+            &:focus {
+                border-color: $-prisma;
+            }
+
+            &::placeholder {
+                color: $-gray-400;
+            }
         }
     }
-    .FormImageDesc{
-        width: 418px;
-        height: 136px;
-        .input-descricao{
-            width: 418px;
-            height: 136px;
-            padding: 40px 20px 0;
+
+    .FormImageDesc {
+        width: 100%;
+
+        .input-descricao {
+            width: 100%;
+            height: 120px;
+            padding: 16px;
             border-radius: 8px;
-            font-size: 16px;
             border: 2px solid $-gray-100;
-            overflow-y: scroll;
+            font-size: 16px;
+            font-family: inherit;
+            resize: vertical;
+            min-height: 120px;
+            outline: none;
+            transition: border-color 0.2s ease;
+
+            @include tablet-up {
+                height: 136px;
+                min-height: 136px;
+            }
+
+            &:focus {
+                border-color: $-prisma;
+            }
+
+            &::placeholder {
+                color: $-gray-400;
+            }
         }
     }
 }
-.button-submit{
-    position: absolute;
-    margin-top: 20px;
-    left: 85%;
-    right: 100%;
-    background: $-prisma;
-    color: $-white;
-    font-family: 'Poppins', sans-serif;
-    border-radius: 8px;
-    width: 122px;
+
+.button-submit {
+    width: 100%;
     height: 56px;
-    border: 0;
-    text-transform: Uppercase;
+    background-color: $-prisma;
+    color: $-white;
+    border: none;
+    border-radius: 8px;
     font-size: 16px;
-    &:hover{
-        background-color:$-crimson;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 24px;
+    transition: background-color 0.2s ease, transform 0.1s ease;
+
+    &:hover {
+        background-color: color.adjust($-prisma, $lightness: -10%);
+        transform: translateY(-1px);
     }
-    &:active{
-        background-color: $-shockPink;
+
+    &:active {
+        transform: translateY(0);
     }
+
+    @include tablet-up {
+        max-width: 200px;
+        margin-left: auto;
     }
-    .picture__img{
-        width: 100%;
-        image-resolution: 279px 212px;
+
+    @include desktop-up {
+        margin-top: 32px;
     }
+}

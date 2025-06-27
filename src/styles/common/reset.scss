@@ -1,8 +1,59 @@
-*{
+// Modern CSS Reset
+*,
+*::before,
+*::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    // border: 1px solid $-gray-500;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    line-height: 1.5;
+    text-rendering: optimizeSpeed;
     font-family: 'Roboto', sans-serif;
-    font-family: 'Poppins', sans-serif;
+}
+
+// Reset list styles
+ul, ol {
+    list-style: none;
+}
+
+// Reset form elements
+input, button, textarea, select {
+    font: inherit;
+    border: none;
+    background: none;
+}
+
+// Reset button styles
+button {
+    cursor: pointer;
+}
+
+// Reset link styles
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+// Reset table styles
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+// Reset image styles
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+// Remove default margins from headings
+h1, h2, h3, h4, h5, h6 {
+    font-size: inherit;
+    font-weight: inherit;
 }

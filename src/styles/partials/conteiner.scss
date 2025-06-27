@@ -1,26 +1,123 @@
-.WrapperFormConteiner{
+// Mobile-first responsive containers
+.WrapperFormConteiner {
     position: relative;
+    width: 100%;
     max-width: 100%;
-    height:430px;
     margin: 0 auto;
-    padding: 40px 130px 60px;
-    .title-form{
-        margin-bottom:40px;
-        font-size: 32px;
-        width: 477px;
-        height: 38px;
+    padding: 20px 16px;
+    min-height: auto;
+
+    .title-form {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        width: 100%;
+        text-align: left;
+        font-weight: 700;
+        color: $-black;
     }
-    align-content: center;
+
+    @include tablet-up {
+        padding: 30px 40px;
+
+        .title-form {
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+    }
+
+    @include desktop-up {
+        padding: 40px 60px;
+        max-width: 1200px;
+
+        .title-form {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+    }
+
+    @include large-desktop {
+        padding: 40px 130px 60px;
+        height: auto;
+        min-height: 430px;
+    }
 }
-.WrapperSlickConteiner{
-    display: inline-flex;
+
+.WrapperSlickConteiner {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px;
+    margin: 0 auto;
     position: relative;
-    padding-inline: 130px;
-    flex-direction: column;
-    width: 1460px;
-    height: 0 auto;
-    align-content: center;
+
+    .title-list {
+        font-size: 24px;
+        line-height: 1.2;
+        margin-bottom: 24px;
+        text-align: center;
+        font-weight: 700;
+        color: $-black;
+    }
+
+    @include tablet-up {
+        padding: 30px 40px;
+
+        .title-list {
+            font-size: 28px;
+            margin-bottom: 32px;
+        }
+    }
+
+    @include desktop-up {
+        padding: 40px 60px;
+        max-width: 1400px;
+
+        .title-list {
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+    }
+
+    @include large-desktop {
+        padding: 40px 130px;
+        width: 1460px;
+    }
 }
-.FormConteiner{
+
+// Arrow buttons for slick carousel
+.arrow {
     position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 40px;
+    height: 40px;
+    background: $-white;
+    border: 2px solid $-gray;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 10;
+
+    &:hover {
+        background: $-gray-100;
+    }
+
+    @include mobile {
+        display: none;
+    }
+}
+
+.Fakebutton-Prev {
+    left: -20px;
+
+    @include desktop-up {
+        left: -60px;
+    }
+}
+
+.Fakebutton-Next {
+    right: -20px;
+
+    @include desktop-up {
+        right: -60px;
+    }
 }

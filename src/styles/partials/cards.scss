@@ -1,36 +1,174 @@
-.title-list{
-    margin: 60px 0px 40px 0;
-    width: 283px;
-    height: 38px;
+// Mobile-first cards
+.title-list {
+    font-size: 24px;
+    margin-bottom: 24px;
+    text-align: center;
+    color: $-gray-500;
+    font-weight: 700;
+
+    @include tablet-up {
+        font-size: 28px;
+        margin: 40px 0 32px 0;
+    }
+
+    @include desktop-up {
+        font-size: 32px;
+        margin: 60px 0 40px 0;
+        text-align: left;
+    }
 }
-.container-item-list{
-    width: 280px !important;
-    margin-right: 22px;
-    margin-bottom: 22px;
-    height: 430px;
-    box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
-    border-radius: 8px;
-    .description-item-list{
-        font-weight: 400;
-        font-size: 16px;
-        line-height: 24px;
-        color:$-gray-400;
+
+.Slicklist {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+
+    // Mobile: stacked layout, no slick
+    .container-item-list {
+        width: 100%;
+        margin-bottom: 24px;
+
+        .SlickImageItem {
+            display: flex;
+            flex-direction: column;
+            background: $-white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+            &:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+            }
+
+            .image-item {
+                width: 100%;
+                height: 200px;
+                object-fit: cover;
+
+                @include tablet-up {
+                    height: 212px;
+                }
+            }
+
+            .card-text {
+                padding: 20px;
+
+                @include tablet-up {
+                    padding: 24px;
+                }
+
+                .title-item-list {
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: $-gray-500;
+                    margin-bottom: 12px;
+                    line-height: 1.3;
+
+                    @include tablet-up {
+                        font-size: 20px;
+                        margin-bottom: 16px;
+                    }
+                }
+
+                .description-item-list {
+                    font-size: 14px;
+                    color: $-gray-400;
+                    line-height: 1.5;
+
+                    @include tablet-up {
+                        font-size: 16px;
+                        line-height: 1.5;
+                    }
+                }
+            }
+        }
     }
-    .image-item{
-        width: 280px;
-        height: 212px;
-        border-radius: 8px;
+
+    // Tablet and up: enable slick carousel
+    @include tablet-up {
+        .container-item-list {
+            width: 280px !important;
+            margin-right: 22px;
+            margin-bottom: 22px;
+            height: 430px;
+
+            .SlickImageItem {
+                height: 100%;
+                border-radius: 8px;
+                box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.08);
+
+                .image-item {
+                    height: 212px;
+                }
+            }
+        }
     }
-    .title-item-list{
-        width: 232px;
-        height: 60px;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-content: center;
-        margin-bottom: 8px;
+}
+
+// Arrow buttons
+.arrow {
+    display: none;
+
+    @include tablet-up {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: $-white;
+        border: 2px solid $-gray-100;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: $-prisma;
+            border-color: $-prisma;
+            color: $-white;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 12px;
+            height: 12px;
+            border-top: 2px solid currentColor;
+            border-right: 2px solid currentColor;
+        }
     }
-    .card-text{
-        padding: 24px;
+}
+
+.Fakebutton-Prev {
+    left: -22px;
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(-135deg);
+    }
+}
+
+.Fakebutton-Next {
+    right: -22px;
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+// Slick carousel container positioning
+@include tablet-up {
+    .WrapperSlickConteiner {
+        position: relative;
+
+        .Slicklist {
+            margin: 0 60px; // Space for arrows
+        }
     }
 }

@@ -1,21 +1,55 @@
+// Global responsive styles
+body {
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    color: $-gray-400;
+    background-color: $-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+    @include mobile {
+        font-size: 14px;
+    }
+}
+
 p,
 input,
 button,
-span
-{
-    color:$-gray-400;
+span {
+    color: $-gray-400;
     font-family: 'Roboto', sans-serif;
 }
-button{
-    cursor:pointer;
+
+h1, h2, h3, h4, h5, h6 {
+    color: $-black;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    line-height: 1.2;
+    margin: 0;
 }
-h{
-    color:$-black;
+
+button {
+    cursor: pointer;
+    font-family: inherit;
 }
-textarea{
-    width: 100%;
-    resize: none;
-    font-family: "Roboto",sans-serif;
-    height: 99px;
-    border: 0;
+
+textarea {
+    font-family: 'Roboto', sans-serif;
+    resize: vertical;
+    border: none;
+    outline: none;
+}
+
+// Responsive image handling
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+// Focus states for accessibility
+*:focus {
+    outline: 2px solid $-prisma;
+    outline-offset: 2px;
 }

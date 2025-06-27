@@ -1,55 +1,167 @@
-.Slicklist{
+// Mobile-first slick carousel styles
+.Slicklist {
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
-.slick-dots{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    bottom: 0.65%;
-    margin:0 0 0 0;
-    & button{
-        display: block;
-        width: 10px;
-        height: 10px;
-        padding: 0;
-        border: none;
-        border-radius: 50%;
-        background: $-gray-500;
-        color: $-gray-500;
-        // opacity: 0;
-    }
-    & li{
-        margin: 0 0.12rem;
-        border-radius: 50%;
-    }
-    & li.slick-active button{
-        width: 17px;
-        height: 17px;
-        background-color: $-white;
-        border: 0.5px solid  $-gray-400;
-    }
-    & li button{
-        text-indent: -9999px;
-        overflow:hidden;
-    }
-}
-.arrow{
-    position: absolute;
-    transform: translatex(-90px);
-    left: 150px;
-    top: 55%;
-    z-index: 1;
-    margin: 0 10px;
-    width: 14px;
-    height: 30px;
-    background-repeat: no-repeat;
-    border: 0;
-    background-color: $-white;
-}
-.Fakebutton-Prev{
-    background-image: url('./img/Seta.svg');
 
+// Slick dots - hidden on mobile, visible on tablet+
+.slick-dots {
+    display: none;
+
+    @include tablet-up {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        list-style: none;
+        position: absolute;
+        bottom: -40px;
+        left: 50%;
+        transform: translateX(-50%);
+        margin: 0;
+        padding: 0;
+        z-index: 10;
+
+        li {
+            margin: 0 6px;
+
+            button {
+                display: block;
+                width: 12px;
+                height: 12px;
+                padding: 0;
+                border: none;
+                border-radius: 50%;
+                background: $-gray-400;
+                color: transparent;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                text-indent: -9999px;
+                overflow: hidden;
+
+                &:hover {
+                    background: $-prisma;
+                }
+            }
+
+            &.slick-active button {
+                width: 16px;
+                height: 16px;
+                background-color: $-prisma;
+                border: 2px solid $-white;
+                box-shadow: 0 0 0 1px $-prisma;
+            }
+        }
+    }
+
+    @include desktop-up {
+        bottom: -50px;
+
+        li {
+            margin: 0 8px;
+
+            button {
+                width: 14px;
+                height: 14px;
+            }
+
+            &.slick-active button {
+                width: 18px;
+                height: 18px;
+            }
+        }
+    }
+}
+
+// Arrow buttons - completely hidden on mobile
+.arrow {
+    display: none;
+
+    @include tablet-up {
+        display: block;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 44px;
+        height: 44px;
+        background: $-white;
+        border: 2px solid $-gray-100;
+        border-radius: 50%;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+
+        &:hover {
+            background: $-prisma;
+            border-color: $-prisma;
+
+            &::before {
+                border-color: $-white;
+            }
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 10px;
+            height: 10px;
+            border-top: 2px solid $-gray-500;
+            border-right: 2px solid $-gray-500;
+            transition: border-color 0.2s ease;
+        }
+    }
+
+    @include desktop-up {
+        width: 50px;
+        height: 50px;
+
+        &::before {
+            width: 12px;
+            height: 12px;
+        }
+    }
+}
+
+.Fakebutton-Prev {
+    left: -60px;
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(-135deg);
+    }
+
+    @include desktop-up {
+        left: -80px;
+    }
+}
+
+.Fakebutton-Next {
+    right: -60px;
+
+    &::before {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    @include desktop-up {
+        right: -80px;
+    }
+}
+
+// Slick track and slide adjustments
+.slick-track {
+    display: flex;
+    align-items: stretch;
+}
+
+.slick-slide {
+    > div {
+        height: 100%;
+
+        > * {
+            height: 100%;
+        }
+    }
 }
 .Fakebutton-Next{
     background-image: url('./img/SetaDireita.svg');
